@@ -1,0 +1,7 @@
+numpy
+pandas
+nltk
+tqdm
+torch
+transformers
+datasets
