@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two Text Boxes Form</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('https://images.unsplash.com/photo-1445262102387-5fbb30a5e59d?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218MHx8bmF0dXJlfHx8fHx8MTcxMDE1MDE5Ng&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1600');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 20px
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Text Summarization</h1>
+        <form id="textForm" method="post" action="/text_summerization" onsubmit="showProgressBar()">
+            <textarea id="input_text_html" name="input_text_html" cols="50" rows="13" minlength="20" maxlength="750" placeholder="Enter up to 750 words..."></textarea><br>
+            <button type="submit">Summerize the text</button>
+        </form>
+        <div class="progress-bar">
+            <div id="progress" class="progress"></div>
+        </div>
+        {% if result %}
+        <textarea id="output" cols = "50" rows="7" readonly>{{ result }}</textarea>
+        {% endif %}
+    </div>
+
+    <script>
+        function showProgressBar() {
+            document.getElementById("progress").style.width = "100%";
+        }
+    </script>
+</body>
+</html>
